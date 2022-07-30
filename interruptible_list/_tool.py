@@ -102,21 +102,42 @@ def interruptible_list(
         print("interruptible_list running, you can use:", file=sys.stderr)
         if save_last:
             if callback_last is not None:
-                print(f" - `kill -USR1 {os.getpid()}` to pickle the result of the callback on the last fetched item.", file=sys.stderr)
+                print(
+                    f" - `kill -USR1 {os.getpid()}` to pickle the result of the callback on the last fetched item.",
+                    file=sys.stderr,
+                )
             else:
-                print(f" - `kill -USR1 {os.getpid()}` to pickle the last fetched item.", file=sys.stderr)
+                print(
+                    f" - `kill -USR1 {os.getpid()}` to pickle the last fetched item.",
+                    file=sys.stderr,
+                )
         else:
             if callback_last is not None:
-                print(f" - `kill -USR1 {os.getpid()}` to call the callback on the last fetched item.", file=sys.stderr)
+                print(
+                    f" - `kill -USR1 {os.getpid()}` to call the callback on the last fetched item.",
+                    file=sys.stderr,
+                )
         if save_whole:
             if callback_whole is not None:
-                print(f" - `kill -USR2 {os.getpid()}` to pickle the result on the callback on the whole current list.", file=sys.stderr)
+                print(
+                    f" - `kill -USR2 {os.getpid()}` to pickle the result on the callback on the whole current list.",
+                    file=sys.stderr,
+                )
             else:
-                print(f" - `kill -USR2 {os.getpid()}` to pickle the whole current list.", file=sys.stderr)
+                print(
+                    f" - `kill -USR2 {os.getpid()}` to pickle the whole current list.",
+                    file=sys.stderr,
+                )
         else:
             if callback_whole is not None:
-                print(f" - `kill -USR2 {os.getpid()}` to call the callback on the whole current list.", file=sys.stderr)
-        print(f"  - CTRL-C (or `kill -INT {os.getpid()}`) to stop and return the current list.", file=sys.stderr)
+                print(
+                    f" - `kill -USR2 {os.getpid()}` to call the callback on the whole current list.",
+                    file=sys.stderr,
+                )
+        print(
+            f"  - CTRL-C (or `kill -INT {os.getpid()}`) to stop and return the current list.",
+            file=sys.stderr,
+        )
 
     old_usr1 = signal.signal(signal.SIGUSR1, wrapper.handler_sig)
     old_usr2 = signal.signal(signal.SIGUSR2, wrapper.handler_sig)

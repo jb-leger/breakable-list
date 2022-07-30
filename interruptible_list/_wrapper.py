@@ -70,8 +70,9 @@ class Wrap:
     def handler_sig(self, sig, _):
         if not self._retlist:
             if not self._quiet:
-                print("\033[0K;\r"+
-                    f"Signal {'SIGUSR1' if sig==signal.SIGUSR1 else 'SIGUSR2'} ignored: the list is still empty",
+                print(
+                    "\033[0K;\r"
+                    + f"Signal {'SIGUSR1' if sig==signal.SIGUSR1 else 'SIGUSR2'} ignored: the list is still empty",
                     file=sys.stderr,
                 )
             return None
@@ -109,8 +110,11 @@ class Wrap:
             pickle.dump(toconsider, fileobj)
             fileobj.close()
             if not self._quiet:
-                print("\033[0K;\r"+savemsg, file=sys.stderr)
-                print(f"To load, use `pickle.load({'gzip.' if self._gzip else ''}open({filename!r}, {'rb'!r}))`", file=sys.stderr)
+                print("\033[0K;\r" + savemsg, file=sys.stderr)
+                print(
+                    f"To load, use `pickle.load({'gzip.' if self._gzip else ''}open({filename!r}, {'rb'!r}))`",
+                    file=sys.stderr,
+                )
         return None
 
     def build(self):
