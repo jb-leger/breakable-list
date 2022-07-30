@@ -46,7 +46,7 @@ def mygen():
     L = interruptible_list(mygen(), callback_last=mycallback)
     ```
 
- - With callback on `SIGUSR2` to display the mean on the list on `stderr`:
+ - With callback on `SIGUSR2` to display the mean on the current list on `stderr`:
     ```python
     import sys
     from interruptible_list import interruptible_list
@@ -55,13 +55,13 @@ def mygen():
         mean = sum(thelist)/len(thelist)
         print(mean, file=sys.stderr)
 
-    L = interruptible_list(mygen(), callback_all=mycallback_mean)
+    L = interruptible_list(mygen(), callback_whole=mycallback_mean)
     ```
 
- - With save on `SIGUSR1` and `SIGUSR2`. Last item (`USR1`) or the current list
+ - With save on `SIGUSR1` and `SIGUSR2`. Last item (`USR1`) or the whole current list
    (`USR2`) is pickled when the signal is received.
     ```python
     from interruptible_list import interruptible_list
 
-    L = interruptible_list(mygen(), save=True)
+    L = interruptible_list(mygen(), save_last=True, save_whole=True)
     ```

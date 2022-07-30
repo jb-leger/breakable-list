@@ -11,7 +11,7 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
-with open(path.join(here, "breakable_list", "__init__.py"), encoding="utf-8") as f:
+with open(path.join(here, "interruptible_list", "__init__.py"), encoding="utf-8") as f:
     ast = compile(f.read(), "__init__.py", "exec")
     fake_global = {"__name__": "__main__"}
     try:
@@ -26,12 +26,12 @@ with open(path.join(here, "README.md"), encoding="utf-8") as f:
 
 
 setup(
-    name="breakable_list",  # Required
+    name="interruptible_list",  # Required
     version=version,  # Required
-    description="Build a list from a iterable, breakable by KeyboardInterrupt (SIGINT), and monitorable by SIGUSR1 and SIGUSR2.",  # Required
+    description="Build a list from a iterable, interruptible by KeyboardInterrupt (SIGINT), and monitorable by SIGUSR1 and SIGUSR2.",  # Required
     long_description=long_description,  # Optional
     long_description_content_type="text/markdown",  # Optional (see note above)
-    url="https://github.com/jb-leger/breakable-list",  # Optional
+    url="https://github.com/jb-leger/interruptible-list",  # Optional
     author="Jean-Benoist Leger",  # Optional
     author_email="jb@leger.tf",  # Optional
     classifiers=[  # Optional
