@@ -30,7 +30,7 @@ __title__ = "interruptible-list"
 __author__ = "Jean-Benoist Leger"
 __licence__ = "MIT"
 
-version_info = (0, 1)
+version_info = (0, 2)
 __version__ = ".".join(map(str, version_info))
 
 from ._tool import interruptible_list
