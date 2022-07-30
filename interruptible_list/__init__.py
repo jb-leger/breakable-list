@@ -19,18 +19,18 @@
 # SOFTWARE.
 
 """
-A breakable list
-~~~~~~~~~~~~~~~~
+A interruptible list
+~~~~~~~~~~~~~~~~~~~~
 
-Build a list from a iterable, breakable by KeyboardInterrupt (SIGINT), and
+Build a list from a iterable, interruptible by KeyboardInterrupt (SIGINT), and
 monitorable by SIGUSR1 and SIGUSR2.
 """
 
-__title__ = "breakable-list"
+__title__ = "interruptible-list"
 __author__ = "Jean-Benoist Leger"
 __licence__ = "MIT"
 
 version_info = (0, 1)
 __version__ = ".".join(map(str, version_info))
 
-from ._tool import breakable_list
+from ._tool import interruptible_list

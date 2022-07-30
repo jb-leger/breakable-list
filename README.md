@@ -9,9 +9,10 @@ an iterable, except:
   - When a SIGINT (CTRL-C, KeyboardInterrupt) is received, the construction
     is stopped, and the current list is returned.
   - When a SIGUSR1 is received, the last item is pickled in a file or a callback
-    is called, and the construction of the list continues.
-  - When a SIGUSR2 is received, the current list is pickled in an file or a
-    callback is called, and the construction of the list continues.
+    is called on the last item, and the construction of the list continues.
+  - When a SIGUSR2 is received, the whole current list is pickled in an file or
+    a callback is called on the whole current list, and the construction of the
+    list continues.
 
 Examples
 --------
